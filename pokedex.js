@@ -8,3 +8,6 @@ async function pokemonData() {
     }
 }
 console.log(pokemonData())
+async function pokeCards() {
+    let pokemon = await pokemonData()
+}
