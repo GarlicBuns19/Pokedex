@@ -1,7 +1,7 @@
 const row = document.querySelector('.row')
 
 async function pokemonData() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=30'
+    let url = 'https://pokeapi.co/api/v2/pokemon/'
     try{
         let pokeCollection =  await fetch(url);
         return await pokeCollection.json();
@@ -12,7 +12,15 @@ async function pokemonData() {
 console.log(pokemonData())
 async function pokeCards() {
     let pokemon = await pokemonData()
-    pokemon.results.foreach(pk => {
-
+    pokemon.results.forEach(item => {
+        `
+        <div class="col-md-4">
+                <div class="card" style="width: 21rem;">
+                        <h5 class="card-title">${item.name}</h5>
+                    </div>
+                </div> 
+            </div>
+        `
     })
 }
+row.innerHTML = pokeCards()
