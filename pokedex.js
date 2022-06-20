@@ -11,12 +11,7 @@ fetch(pokeUrl)
     let pokemon = response.results;
     pokemon.forEach((title) => {
         row.innerHTML += `<h1> ${title.name} </h1>`
-    }).then((response) => {
-        let pokemona = response.results.abilitites.ability;
-        pokemona.forEach((title) => {
-            row.innerHTML += `<h2> ${title.name} </h1>`
-        }) })
-    
+    }) 
 })
 .catch((error) => {
     console.log('Not Successful', error)
