@@ -1,63 +1,22 @@
 const row = document.querySelector('.row')
 
+
 let pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
-// This works to fetch api
-fetch(pokeUrl)
-.then(response => response.json())
-// .then(data => {
-//     console.log('Success', data)})
-    .then((response) => {
-    let pokemon = response.results;
-    pokemon.forEach((title) => {
-        row.innerHTML += `<h1> ${title.name} </h1>`
-    }) 
-})
-.catch((error) => {
-    console.log('Not Successful', error)
-})
+fetch(pokeUrl). then( response => {
+    return response.json()
+}).
+then(data => {
+    // console.log(data.abilities);
+    // data.abilities.forEach((e) => {
+    //     row.innerHTML +=`<h1> ${e.ability.name} </h1>`
+    // })
+    // data.results.forEach((e) => {
+    //     console.log(e);
 
-// function getApi(url) {
-//     fetch(url)
-//     .then(response => response.json())
-//     .then((response) => {
-//         let pokemon = response.results;
-//         pokemon.forEach((h1) => {
-//             row.innerHTML += `<h1>${h1.name}</h1>`
-//         })
-//     })
-// }
-// getApi(pokeUrl)
+    // });
+    console.log(data);
+}).catch((error) => {
+        console.log('Not Successful', error)
+    })
 
-
-
-
-
-
-
-
-
-// async function pokemonData() {
-//     let url = 'https://pokeapi.co/api/v2/pokemon/'
-//     try{
-//         let pokeCollection =  await fetch(url);
-//         return await pokeCollection.json();
-//     }catch(error){
-//         console.log(error)
-//     }
-// }
-// console.log(pokemonData())
-// async function pokeCards() {
-//     let pokemon = await pokemonData()
-//     pokemon.results.forEach(item => {
-//         `
-//         <div class="col-md-4">
-//                 <div class="card" style="width: 21rem;">
-//                         <h5 class="card-title">${item.name}</h5>
-//                     </div>
-//                 </div> 
-//             </div>
-//         `
-//     })
-// }
-// row.innerHTML = pokeCards()
