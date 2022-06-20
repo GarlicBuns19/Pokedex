@@ -2,14 +2,32 @@ const row = document.querySelector('.row')
 
 let pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
+// This works to fetch api
 fetch(pokeUrl)
 .then(response => response.json())
-.then(data => {
-    console.log('Success', data)
-}).catch((error) => {
+// .then(data => {
+//     console.log('Success', data)})
+    .then((response) => {
+    let pokemon = response.results;
+    pokemon.forEach((title) => {
+        row.innerHTML += `<h1> ${title.name} </h1>`
+    }) 
+})
+.catch((error) => {
     console.log('Not Successful', error)
 })
 
+// function getApi(url) {
+//     fetch(url)
+//     .then(response => response.json())
+//     .then((response) => {
+//         let pokemon = response.results;
+//         pokemon.forEach((h1) => {
+//             row.innerHTML += `<h1>${h1.name}</h1>`
+//         })
+//     })
+// }
+// getApi(pokeUrl)
 
 
 
