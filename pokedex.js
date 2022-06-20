@@ -1,22 +1,22 @@
 const row = document.querySelector('.row')
 
+const pokeUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
-let pokeUrl = 'https://pokeapi.co/api/v2/pokemon/';
-
-fetch(pokeUrl). then( response => {
-    return response.json()
-}).
-then(data => {
-    // console.log(data.abilities);
-    // data.abilities.forEach((e) => {
-    //     row.innerHTML +=`<h1> ${e.ability.name} </h1>`
-    // })
-    // data.results.forEach((e) => {
-    //     console.log(e);
-
-    // });
-    console.log(data);
-}).catch((error) => {
-        console.log('Not Successful', error)
+async function getData(){
+    let data = await fetch(pokeUrl)
+    .then(data => data.json())
+    .then(data => {
+        data.results.forEach((n) => {
+            row.innerHTML += `<h1>${n.name}</h1>`
+            // use the += to show all data
+        })
     })
-
+    // .then(data => console.log(data.results[0].name))
+    try{
+        console.log('Success')
+    }catch(error){
+        console.log('error')
+    }
+    
+}
+getData();
