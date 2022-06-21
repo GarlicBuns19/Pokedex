@@ -46,3 +46,16 @@ function pokemonUrl(url) {
         console.log(p.abilities[2].ability.name)
     })
 }
+
+const cardCreate = () => {
+    `<div class="col-md-4">
+        <div class="card" style="width: 21rem;">
+            <img src="${data.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">
+            <div class="card-body">
+            <h5 class="card-title">${data.name}</h5>
+            <p class="card-text">${data.types[0].type.name}</p>
+                <p class="card-text">${data.abilities[0].ability.name}</p>
+            </div>
+        </div>
+    </div>`
+}
