@@ -37,5 +37,6 @@ function pokemonUrl(url) {
     .then((p) => {
         console.log(p.name)
         console.log(p.sprites.front_default)
+        console.log(p.types[0].type.name)
     })
 }
