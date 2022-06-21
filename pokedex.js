@@ -19,12 +19,12 @@ async function getData(){
     }catch(error){
         console.log('error')
     }
-    
 }
+// Calling the function
 getData();
 // Pokemon Names
 // fetch(pokeUrl).then(
-//     res => res.json() 
+//     res => res.json()
 // ).then(res => {
 //         res.results.forEach((e) => {
 //             console.log(e.name);
