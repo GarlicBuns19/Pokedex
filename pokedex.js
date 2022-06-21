@@ -36,5 +36,6 @@ function pokemonUrl(url) {
     .then(res => res.json())
     .then((p) => {
         console.log(p.name)
+        console.log(p.sprites.front_default)
     })
 }
