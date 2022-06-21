@@ -9,7 +9,7 @@ async function getData(){
     .then(data => data.json())
     .then(data => {
         data.results.forEach((n) => {
-            btnsearch.innerHTML += `<button id="pokemon" onclick="pokemonUrl('${n.url}')">${n.name}</button>`
+            btnsearch.innerHTML += `<button id="pokemon" onmouseover="pokemonUrl('${n.url}')">${n.name}</button>`
             // use the += to show all data
         })
     })
