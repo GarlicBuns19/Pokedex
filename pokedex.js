@@ -1,14 +1,15 @@
 const row = document.querySelector('.row')
+const btnsearch = document.querySelector('.search')
 
 const pokeUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
+// Pokemon Name
 async function getData(){
     let data = await fetch(pokeUrl)
     .then(data => data.json())
     .then(data => {
         data.results.forEach((n) => {
-            row.innerHTML += `<h1>${n.name}</h1>`
-            row.innerHTML += `<h1>${n.url}</h1>`
+            btnsearch.innerHTML += `<button id="pokemon" onclick="pokemonUrl("${n.url}">${n.name}</button>`
             // use the += to show all data
         })
     })
@@ -21,7 +22,6 @@ async function getData(){
     
 }
 getData();
-
 // Pokemon Names
 // fetch(pokeUrl).then(
 //     res => res.json() 
@@ -31,3 +31,10 @@ getData();
 //             console.log(e.url);
 //         })}
 // )
+function pokemonUrl(url) {
+    fetch(url)
+    .then(res => res.json())
+    .then((p) => {
+        console.log(p.name)
+    })
+}
