@@ -65,6 +65,13 @@ function pokemonUrl(url) {
                     ${pokemon.abilities[0].ability.name}
                 </p>
             `
+            if(`${pokemon.types[0].type.name}` == 'normal'){
+                document.querySelector('.card-text').style.backgroundColor = 'green';
+            }else if (`${pokemon.types[0].type.name}` == 'fire'){
+                document.querySelector('.card-text').style.backgroundColor = 'red';
+            }else{
+                document.querySelector('.card-text').style.backgroundColor = 'yellow';
+            }
     })
 };
     // .then((p) => {
