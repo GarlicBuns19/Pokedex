@@ -48,8 +48,9 @@ function pokemonUrl(url) {
     fetch(url)
     .then(res => res.json())
     .then(pokemon => {
-            document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
-            document.querySelector('.card-body').innerHTML += `
+            // document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
+            document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.other['official-artwork'].front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
+            ,document.querySelector('.card-body').innerHTML += `
                 <h5 class="card-title">
                     ${pokemon.name}
                 </h5>
