@@ -25,7 +25,7 @@ async function getData(){
 getData();
 // =======================================================================================================================
 
-// Poke Card Create
+// Pokemon Card Create
 function cardCreate(){
     `<div class="col-md-4">
          <div class="card" style="width: 21rem;">
@@ -48,22 +48,41 @@ function cardCreate(){
 };
 // =======================================================================================================================
 
-// After it gets url
+// After it gets pokemon url
 function pokemonUrl(url) {
+    card.innerHTML += cardCreate()
     fetch(url)
     .then(res => res.json())
-    .then((p) => {
-        console.log(p.name)
-        console.log(p.sprites.front_default)
-        // if statement
-        console.log(p.types[0].type.name)
-        console.log(p.types[1].type.name)
-        // if statement
-        console.log(p.abilities[0].ability.name)
-        console.log(p.abilities[1].ability.name)
-        console.log(p.abilities[2].ability.name)
-    })
+    .then(pokemon => {
+        pokemon.forEach((details => {
+            document.querySelector('.poke-Img').innerHTML += `<img src="${details.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
+            document.querySelector('.card-body').innerHTML += `
+                <h5 class="card-title">
+                    ${details.name}
+                </h5>
+                <p class="card-text">
+                    ${details.types[0].type.name}
+                </p>
+                <p class="card-text">
+                    ${details.abilities[0].ability.name}
+                </p>
+            `
+    }))
+})
+    // .then((p) => {
+    //     console.log(p.name)
+    //     console.log(p.sprites.front_default)
+    //     // if statement
+    //     console.log(p.types[0].type.name)
+    //     console.log(p.types[1].type.name)
+    //     // if statement
+    //     console.log(p.abilities[0].ability.name)
+    //     console.log(p.abilities[1].ability.name)
+    //     console.log(p.abilities[2].ability.name)
+    // })
 }
+// =======================================================================================================================
+
 
 // function cardCreate(data) {
 //     data.forEach((data) => {
