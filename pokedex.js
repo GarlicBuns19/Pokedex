@@ -18,7 +18,11 @@ async function getData(url){
             // use the += to show all data
             // = shows last data
         })
+        if(data.previous){
+            next.innerHTML += `<button onclick="getData('${data.previous}')">Previous Pokemon</button>`;
+        }
         next.innerHTML += `<button onclick="getData('${data.next}')">Next Pokemon</button>`;
+        // next.innerHTML += `<button onclick="getData('${data.previous}')">Previous Pokemon</button>`;
     })
     // .then(data => console.log(data.results[0].name))
     try{
