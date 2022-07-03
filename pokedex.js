@@ -1,5 +1,6 @@
 const row = document.querySelector('.row')
 const btnsearch = document.querySelector('.search')
+const card = document.getElementById('card')
 
 const pokeUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
@@ -9,8 +10,9 @@ async function getData(){
     .then(data => data.json())
     .then(data => {
         data.results.forEach((n) => {
-            btnsearch.innerHTML += `<button id="pokemon" onmouseover="pokemonUrl('${n.url}')">${n.name}</button>`
+            btnsearch.innerHTML += `<button id="pokemon" onmouseover="pokemonUrl('${n.url}')">${n.name}</button>`;
             // use the += to show all data
+            // = shows last data
         })
     })
     // .then(data => console.log(data.results[0].name))
@@ -19,18 +21,34 @@ async function getData(){
     }catch(error){
         console.log('error')
     }
-}
-// Calling the function
+};
 getData();
-// Pokemon Names
-// fetch(pokeUrl).then(
-//     res => res.json()
-// ).then(res => {
-//         res.results.forEach((e) => {
-//             console.log(e.name);
-//             console.log(e.url);
-//         })}
-// )
+// =======================================================================================================================
+
+// Poke Card Create
+function cardCreate(){
+    `<div class="col-md-4">
+         <div class="card" style="width: 21rem;">
+            <div id="poke-Img">
+                <img src="${data.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">
+            </div>
+             <div class="card-body">
+                <h5 class="card-title">
+                    ${data.name}
+                </h5>
+                <p class="card-text">
+                    ${data.types[0].type.name}
+                </p>
+                <p class="card-text">
+                    ${data.abilities[0].ability.name}
+                </p>
+             </div>
+         </div>
+     </div>`
+};
+// =======================================================================================================================
+
+// After it gets url
 function pokemonUrl(url) {
     fetch(url)
     .then(res => res.json())
@@ -47,15 +65,16 @@ function pokemonUrl(url) {
     })
 }
 
-const cardCreate = () => {
-    `<div class="col-md-4">
-        <div class="card" style="width: 21rem;">
-            <img src="${data.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">
-            <div class="card-body">
-            <h5 class="card-title">${data.name}</h5>
-            <p class="card-text">${data.types[0].type.name}</p>
-                <p class="card-text">${data.abilities[0].ability.name}</p>
-            </div>
-        </div>
-    </div>`
-}
+// function cardCreate(data) {
+//     data.forEach((data) => {
+//         card.innerHTML += `<div class="col-md-4">
+//         <div class="card" style="width: 21rem;">
+//             <img src="${data.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">
+//             <div class="card-body">
+//             <h5 class="card-title">${data.name}</h5>
+//             <p class="card-text">${data.types[0].type.name}</p>
+//                 <p class="card-text">${data.abilities[0].ability.name}</p>
+//             </div>
+//         </div>
+//     </div>`
+// })};
