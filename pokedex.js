@@ -27,22 +27,11 @@ getData();
 
 // Pokemon Card Create
 function cardCreate(){
-    `<div class="col-md-4">
+    card.innerHTML = '';
+    card.innerHTML = `<div class="col-md-4">
          <div class="card" style="width: 21rem;">
-            <div id="poke-Img">
-                <img src="${data.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">
-            </div>
-             <div class="card-body">
-                <h5 class="card-title">
-                    ${data.name}
-                </h5>
-                <p class="card-text">
-                    ${data.types[0].type.name}
-                </p>
-                <p class="card-text">
-                    ${data.abilities[0].ability.name}
-                </p>
-             </div>
+            <div id="poke-Img"> </div>
+            <div class="card-body"> </div>
          </div>
      </div>`
 };
@@ -50,25 +39,24 @@ function cardCreate(){
 
 // After it gets pokemon url
 function pokemonUrl(url) {
-    card.innerHTML += cardCreate()
+    cardCreate()
     fetch(url)
     .then(res => res.json())
     .then(pokemon => {
-        pokemon.forEach((details => {
-            document.querySelector('.poke-Img').innerHTML += `<img src="${details.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
+            document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
             document.querySelector('.card-body').innerHTML += `
                 <h5 class="card-title">
-                    ${details.name}
+                    ${pokemon.name}
                 </h5>
                 <p class="card-text">
-                    ${details.types[0].type.name}
+                    ${pokemon.types[0].type.name}
                 </p>
                 <p class="card-text">
-                    ${details.abilities[0].ability.name}
+                    ${pokemon.abilities[0].ability.name}
                 </p>
             `
-    }))
-})
+    })
+}
     // .then((p) => {
     //     console.log(p.name)
     //     console.log(p.sprites.front_default)
@@ -80,7 +68,7 @@ function pokemonUrl(url) {
     //     console.log(p.abilities[1].ability.name)
     //     console.log(p.abilities[2].ability.name)
     // })
-}
+// }
 // =======================================================================================================================
 
 
