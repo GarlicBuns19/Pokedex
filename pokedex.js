@@ -10,12 +10,15 @@ async function getData(url){
     let data = await fetch(url)
     .then(data => data.json())
     .then(data => {
+        // To refresh pokemon
+        btnsearch.innerHTML = '';
+        next.innerHTML = '';
         data.results.forEach((n) => {
             btnsearch.innerHTML += `<button id="pokemon" onclick="pokemonUrl('${n.url}')">${n.name}</button>`;
             // use the += to show all data
             // = shows last data
         })
-        next.innerHTML += `<button onclick="getData(${data.next})">Next</button>`;
+        next.innerHTML += `<button onclick="getData('${data.next}')">Next Pokemon</button>`;
     })
     // .then(data => console.log(data.results[0].name))
     try{
@@ -58,7 +61,7 @@ function pokemonUrl(url) {
                 </p>
             `
     })
-}
+};
     // .then((p) => {
     //     console.log(p.name)
     //     console.log(p.sprites.front_default)
