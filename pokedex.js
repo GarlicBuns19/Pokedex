@@ -1,19 +1,21 @@
-const row = document.querySelector('.row')
-const btnsearch = document.querySelector('.search')
-const card = document.getElementById('card')
+const row = document.querySelector('.row');
+const btnsearch = document.querySelector('.search');
+const card = document.getElementById('card');
+const next = document.getElementById('next');
 
 const pokeUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
 // Pokemon Name
-async function getData(){
-    let data = await fetch(pokeUrl)
+async function getData(url){
+    let data = await fetch(url)
     .then(data => data.json())
     .then(data => {
         data.results.forEach((n) => {
-            btnsearch.innerHTML += `<button id="pokemon" onmouseover="pokemonUrl('${n.url}')">${n.name}</button>`;
+            btnsearch.innerHTML += `<button id="pokemon" onclick="pokemonUrl('${n.url}')">${n.name}</button>`;
             // use the += to show all data
             // = shows last data
         })
+        next.innerHTML += `<button onclick="getData(${data.next})">Next</button>`;
     })
     // .then(data => console.log(data.results[0].name))
     try{
@@ -22,7 +24,7 @@ async function getData(){
         console.log('error')
     }
 };
-getData();
+getData(pokeUrl);
 // =======================================================================================================================
 
 // Pokemon Card Create
