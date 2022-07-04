@@ -66,14 +66,23 @@ function pokemonUrl(url) {
                 </p>
             `
             if(`${pokemon.types[0].type.name}` == 'normal'){
-                document.querySelector('.card-text').style.backgroundColor = 'green';
+                document.querySelector('.card-text').style.backgroundColor = 'gray';
             }else if (`${pokemon.types[0].type.name}` == 'fire'){
                 document.querySelector('.card-text').style.backgroundColor = 'red';
-            }else{
+            }else if (`${pokemon.types[0].type.name}` == 'water'){
+                document.querySelector('.card-text').style.backgroundColor = 'blue';
+            }else if (`${pokemon.types[0].type.name}` == 'grass'){
+                document.querySelector('.card-text').style.backgroundColor = 'green';
+            }else if (`${pokemon.types[0].type.name}` == 'electric'){
+                document.querySelector('.card-text').style.backgroundColor = 'yellow';
+            }
+            else{
                 document.querySelector('.card-text').style.backgroundColor = 'yellow';
             }
     })
 };
+// =======================================================================================================================
+
     // .then((p) => {
     //     console.log(p.name)
     //     console.log(p.sprites.front_default)
