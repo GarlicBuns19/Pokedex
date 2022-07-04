@@ -86,43 +86,8 @@ function pokemonUrl(url) {
                     ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1)}
                 </h5>
             `
-            
-                
-            
-            // <p class="card-text">
-            //         ${pokemon.types[0].type.name}
-            //     </p>
-            //     <p class="card-text card-text-1">
-            //         ${pokemon.types[1].type.name}
-            //     </p>
-            // if(`${pokemon.types[0].type.name}` == 'normal'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'gray';
-            // }else if (`${pokemon.types[0].type.name}` == 'fire'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'red';
-            // }else if (`${pokemon.types[0].type.name}` == 'water',`${pokemon.types[1].type.name}` == 'water'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'blue';
-            // }else if (`${pokemon.types[0].type.name}` == 'grass'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'green';
-            // }else if (`${pokemon.types[0].type.name}` == 'electric'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'yellow';
-            // }else if (`${pokemon.types[0].type.name}` == 'ice'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'lightblue';
-            // }else if (`${pokemon.types[0].type.name}` == 'fighting'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'brown';
-            // }else if (`${pokemon.types[0].type.name}` == 'poison'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'purple';
-            // }else if (`${pokemon.types[0].type.name}` == 'ground'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'sandybrown';
-            // }else if (`${pokemon.types[0].type.name}` == 'flying'){
-            //     document.querySelector('.card-text').style.backgroundColor = 'rgb(170, 195, 237)';
-            // }
-            // else{
-            //     document.querySelector('.card-text').style.backgroundColor = 'pink';
-            // }
-            // if(`${pokemon.types[1].type.name}` == 'poison'){
-            //     document.querySelector('.card-text-1').style.backgroundColor = 'purple';
-            // }
     })
+    let pokeHabitats = 'https://pokeapi.co/api/v2/pokemon-habitat/'
 };
 // =======================================================================================================================
     // .then((p) => {
@@ -138,18 +103,3 @@ function pokemonUrl(url) {
     // })
 // }
 // =======================================================================================================================
-
-
-// function cardCreate(data) {
-//     data.forEach((data) => {
-//         card.innerHTML += `<div class="col-md-4">
-//         <div class="card" style="width: 21rem;">
-//             <img src="${data.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">
-//             <div class="card-body">
-//             <h5 class="card-title">${data.name}</h5>
-//             <p class="card-text">${data.types[0].type.name}</p>
-//                 <p class="card-text">${data.abilities[0].ability.name}</p>
-//             </div>
-//         </div>
-//     </div>`
-// })};
