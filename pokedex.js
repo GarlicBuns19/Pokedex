@@ -60,6 +60,8 @@ function pokemonUrl(url) {
                 </h5>
                 <p class="card-text">
                     ${pokemon.types[0].type.name}
+                </p>
+                <p class="card-text card-text-1">
                     ${pokemon.types[1].type.name}
                 </p>
                 <p class="card-text">
@@ -89,6 +91,9 @@ function pokemonUrl(url) {
             }
             else{
                 document.querySelector('.card-text').style.backgroundColor = 'pink';
+            }
+            if(`${pokemon.types[1].type.name}` == 'poison'){
+                document.querySelector('.card-text-1').style.backgroundColor = 'purple';
             }
     })
 };
