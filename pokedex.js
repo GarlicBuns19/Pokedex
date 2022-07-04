@@ -13,6 +13,10 @@ async function getData(url){
         // To refresh pokemon
         btnsearch.innerHTML = '';
         next.innerHTML = '';
+        // let help = data.results
+        // help.forEach(h=>{
+        //     console.log(h.url)
+        // })
         data.results.forEach((n) => {
             btnsearch.innerHTML += `<button id="pokemon" onclick="pokemonUrl('${n.url}')">${n.name}</button>`;
             // use the += to show all data
