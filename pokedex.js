@@ -60,6 +60,7 @@ function pokemonUrl(url) {
                 </h5>
                 <p class="card-text">
                     ${pokemon.types[0].type.name}
+                    ${pokemon.types[1].type.name}
                 </p>
                 <p class="card-text">
                     ${pokemon.abilities[0].ability.name}
@@ -75,9 +76,19 @@ function pokemonUrl(url) {
                 document.querySelector('.card-text').style.backgroundColor = 'green';
             }else if (`${pokemon.types[0].type.name}` == 'electric'){
                 document.querySelector('.card-text').style.backgroundColor = 'yellow';
+            }else if (`${pokemon.types[0].type.name}` == 'ice'){
+                document.querySelector('.card-text').style.backgroundColor = 'lightblue';
+            }else if (`${pokemon.types[0].type.name}` == 'fighting'){
+                document.querySelector('.card-text').style.backgroundColor = 'brown';
+            }else if (`${pokemon.types[0].type.name}` == 'poison'){
+                document.querySelector('.card-text').style.backgroundColor = 'purple';
+            }else if (`${pokemon.types[0].type.name}` == 'ground'){
+                document.querySelector('.card-text').style.backgroundColor = 'sandybrown';
+            }else if (`${pokemon.types[0].type.name}` == 'flying'){
+                document.querySelector('.card-text').style.backgroundColor = 'rgb(170, 195, 237)';
             }
             else{
-                document.querySelector('.card-text').style.backgroundColor = 'yellow';
+                document.querySelector('.card-text').style.backgroundColor = 'pink';
             }
     })
 };
