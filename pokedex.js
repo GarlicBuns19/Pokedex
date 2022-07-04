@@ -63,6 +63,7 @@ function pokemonUrl(url) {
                 document.getElementById('poke-Type').innerHTML += `
                 <p class="card-text">
                     ${typeName.type.name.charAt(0).toUpperCase() + typeName.type.name.substring(1)}
+                    <img src="./images/pokemon-types/${typeName.type.name.charAt(0).toUpperCase() + typeName.type.name.substring(1)} type.ico" alt="poke-Type-icon">
                 </p>
                 `
             })
