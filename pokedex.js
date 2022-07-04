@@ -39,9 +39,12 @@ function cardCreate(){
     card.innerHTML = '';
     card.innerHTML = `<div class="col-md-4">
          <div class="card" style="width: 21rem;">
-            <div id="poke-Img"> </div>
-            <div id="pokeType"> </div>
-            <div class="card-body"> </div>
+            <div class="card-body"> 
+                <div id="poke-Img"></div>
+                <div id="poke-Name"></div>
+                <div id="poke-Type"></div>
+                <div id="poke-Ability"></div>
+            </div>
          </div>
      </div>`
 };
@@ -53,22 +56,28 @@ function pokemonUrl(url) {
     fetch(url)
     .then(res => res.json())
     .then(pokemon => {
+            // For pokemon type
             pokemon.types.forEach((typeName) => {
-                document.getElementById('pokeType').innerHTML += `
+                document.getElementById('poke-Type').innerHTML += `
                 <p class="card-text">
                     ${typeName.type.name}
                 </p>
                 `
             })
+            // For pokemon abilities
+            pokemon.abilities.forEach((abilityName) => {
+                document.getElementById('poke-Ability').innerHTML += `
+                <p class="card-text">
+                    ${abilityName.ability.name}
+                </p>
+                `
+            })
             // document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
             document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.other['official-artwork'].front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
-            document.querySelector('.card-body').innerHTML += `
+            document.querySelector('#poke-Name').innerHTML += `
                 <h5 class="card-title">
                     ${pokemon.name}
                 </h5>
-                <p class="card-text">
-                    ${pokemon.abilities[0].ability.name}
-                </p>
             `
             
                 
