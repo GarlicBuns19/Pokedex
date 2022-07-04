@@ -96,9 +96,13 @@ function pokemonUrl(url) {
                 document.querySelector('.card-text-1').style.backgroundColor = 'purple';
             }
     })
+    .then(pokemon => {
+        pokemon.types.forEach((typeName) => {
+
+        })
+    })
 };
 // =======================================================================================================================
-
     // .then((p) => {
     //     console.log(p.name)
     //     console.log(p.sprites.front_default)
