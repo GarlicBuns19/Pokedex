@@ -42,7 +42,9 @@ function cardCreate(){
             <div class="card-body"> 
                 <div id="poke-Img"></div>
                 <div id="poke-Name"></div>
+                <h5>Pokemon Type</h5>
                 <div id="poke-Type"></div>
+                <h5>Pokemon Abilities</h5>
                 <div id="poke-Ability"></div>
             </div>
          </div>
@@ -60,7 +62,7 @@ function pokemonUrl(url) {
             pokemon.types.forEach((typeName) => {
                 document.getElementById('poke-Type').innerHTML += `
                 <p class="card-text">
-                    ${typeName.type.name}
+                    ${typeName.type.name.charAt(0).toUpperCase() + typeName.type.name.substring(1)}
                 </p>
                 `
             })
@@ -68,7 +70,7 @@ function pokemonUrl(url) {
             pokemon.abilities.forEach((abilityName) => {
                 document.getElementById('poke-Ability').innerHTML += `
                 <p class="card-text">
-                    ${abilityName.ability.name}
+                    ${abilityName.ability.name.charAt(0).toUpperCase() + abilityName.ability.name.substring(1)}
                 </p>
                 `
             })
@@ -76,7 +78,7 @@ function pokemonUrl(url) {
             document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.other['official-artwork'].front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
             document.querySelector('#poke-Name').innerHTML += `
                 <h5 class="card-title">
-                    ${pokemon.name}
+                    ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.substring(1)}
                 </h5>
             `
             
