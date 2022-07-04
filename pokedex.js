@@ -69,7 +69,7 @@ function pokemonUrl(url) {
                 document.querySelector('.card-text').style.backgroundColor = 'gray';
             }else if (`${pokemon.types[0].type.name}` == 'fire'){
                 document.querySelector('.card-text').style.backgroundColor = 'red';
-            }else if (`${pokemon.types[0].type.name}` == 'water'){
+            }else if (`${pokemon.types[0].type.name}` == 'water',`${pokemon.types[1].type.name}` == 'water'){
                 document.querySelector('.card-text').style.backgroundColor = 'blue';
             }else if (`${pokemon.types[0].type.name}` == 'grass'){
                 document.querySelector('.card-text').style.backgroundColor = 'green';
