@@ -46,8 +46,6 @@ function cardCreate(){
             <div class="card-body"> 
                 <div id="poke-Img"></div>
                 <div id="poke-Name"></div>
-                <h5>Pokemon Habitat</h5>
-                <div id="poke-Habitat"></div>
                 <h5>Pokemon Type</h5>
                 <div id="poke-Type"></div>
                 <h5>Pokemon Abilities</h5>
@@ -72,7 +70,7 @@ function pokemonUrl(url) {
                     <img src="./images/pokemon-types/${typeName.type.name.charAt(0).toUpperCase() + typeName.type.name.substring(1)} type.ico" alt="poke-Type-icon">
                 </p>
                 `
-            });
+            })
             // For pokemon abilities
             pokemon.abilities.forEach((abilityName) => {
                 document.getElementById('poke-Ability').innerHTML += `
@@ -80,24 +78,6 @@ function pokemonUrl(url) {
                     ${abilityName.ability.name.charAt(0).toUpperCase() + abilityName.ability.name.substring(1)}
                 </p>
                 `
-            });
-            fetch(pokemon.species.url)
-            .then(data => data.json())
-            .then((pokeHabitats) => {
-                // Habitat
-                let pokeHabitat = document.getElementById('poke-Habitat');
-                // Show habitat
-                if (pokeHabitats.habitat ) {
-                    pokeHabitat.style.background = `url("./images/pokemon-habitats/${pokeHabitats.habitat.name}-habitat.jpg")`;
-                    pokeHabitat.style.backgroundRepeat = "no-repeat";
-                    pokeHabitat.style.backgroundPositionY = "center";
-                    pokeHabitat.style.backgroundSize = "cover";
-                  } else {
-                    pokeHabitat.style.background = `url("./images/pokemon-habitats/${pokeHabitats.habitat.name}-habitat.jpg")`;
-                    pokeHabitat.style.backgroundRepeat = "no-repeat";
-                    pokeHabitat.style.backgroundPositionY = "center";
-                    pokeHabitat.style.backgroundSize = "cover";
-                  }
             })
             // document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
             document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.other['official-artwork'].front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
@@ -107,7 +87,6 @@ function pokemonUrl(url) {
                 </h5>
             `
     })
-    // let pokeHabitats = 'https://pokeapi.co/api/v2/pokemon-habitat/'
 };
 // =======================================================================================================================
     // .then((p) => {
