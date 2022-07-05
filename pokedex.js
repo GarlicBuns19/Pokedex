@@ -46,6 +46,8 @@ function cardCreate(){
             <div class="card-body"> 
                 <div id="poke-Img"></div>
                 <div id="poke-Name"></div>
+                <h5>Pokemon Habitat</h5>
+                <div id="poke-Habitat"></div>
                 <h5>Pokemon Type</h5>
                 <div id="poke-Type"></div>
                 <h5>Pokemon Abilities</h5>
@@ -78,6 +80,10 @@ function pokemonUrl(url) {
                     ${abilityName.ability.name.charAt(0).toUpperCase() + abilityName.ability.name.substring(1)}
                 </p>
                 `
+            })
+            pokemon.species.url.forEach((habitatName) => {
+                document.getElementById('poke-Habitat').innerHTML += `
+                <img src="./images/pokemon-habitats/${habitatName.habitat.name}-habitat.jpg" alt="">`
             })
             // document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
             document.querySelector('#poke-Img').innerHTML += `<img src="${pokemon.sprites.other['official-artwork'].front_default}" class="card-img-top img-fluid" alt="Pokemon Pic">`
