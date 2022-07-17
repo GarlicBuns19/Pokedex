@@ -1,0 +1,76 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+#pokemon {
+  margin: 20px;
+}
+.card {
+  text-align: center;
+  background: #191c29;
+  color: white;
+  margin: auto;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+}
+.card h5 {
+  text-decoration: underline;
+}
+.card p {
+  font-size: 20px;
+}
+#typeNameImg {
+  width: 70px;
+  height: 70px;
+}
+
+:root {
+  --card-height: fit-content;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+body {
+  background: #212534;
+  margin: 0 0 0 0;
+}
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    red,
+    yellow,
+    green,
+    blue,
+    purple
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+#footer p{
+    text-align: center;
+    bottom: 0;
+    color: white;
+}
+#footer p::before{
+    text-align: center;
+    bottom: 0;
+    color: white;
+    margin-top: 35%;
+}
