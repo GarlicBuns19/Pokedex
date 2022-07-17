@@ -14,6 +14,7 @@
   width: var(--card-width);
   height: var(--card-height);
   padding: 3px;
+  margin-bottom: 30px;
   position: relative;
 }
 .card h5 {
@@ -65,12 +66,5 @@ body {
 }
 #footer p{
     text-align: center;
-    bottom: 0;
     color: white;
-}
-#footer p::before{
-    text-align: center;
-    bottom: 0;
-    color: white;
-    margin-top: 35%;
 }
